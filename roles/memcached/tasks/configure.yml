@@ -16,18 +16,18 @@
 #
 ---
 
-- name: memcached | configure | Make the memcached.conf file
+- name: memcached | configure | Make the /etc/memcached.conf file
   template:
     src: memcached.conf.j2
     dest: /etc/memcached.conf
   notify:
   - memcached_conf_changed
+  when: ansible_os_family | lower != "suse"
 
-- name: memcached | configure | (Suse) update systemd script
-  become: yes
-  lineinfile:
-    dest: /usr/lib/systemd/system/memcached.service
-    state: present
-    regexp: "^ExecStart.*PARAMS"
-    line: "ExecStart=/usr/sbin/memcached /etc/memcached.conf"
-  when: ansible_os_family == 'Suse'
+- name: memcached | configure | Make the /etc/sysconfig/memcached file
+  template:
+    src: memcached.sysconfig.j2
+    dest: /etc/sysconfig/memcached
+  notify:
+  - memcached_conf_changed
+  when: ansible_os_family | lower == "suse"

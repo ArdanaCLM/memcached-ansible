@@ -17,3 +17,5 @@
 ---
 memcached_listen_ip: "{{ host.bind.FND_MEM.internal.ip_address }}"
 memcached_connection_port: "{{ host.bind.FND_MEM.internal.port }}"
+memcached_memory: 64
+memcached_max_connections: 1024
