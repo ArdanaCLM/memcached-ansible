@@ -1,0 +1,2 @@
+.copyrightignore
+roles/memcached/templates/memcached.sysconfig.j2

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 ## Path:        Network/WWW/Memcached
 ## Description: start parameters for memcached.
 ## Type:        string
@@ -8,7 +10,7 @@
 #
 # see man 1 memcached for more
 #
-MEMCACHED_PARAMS="-m {{ memcached_memory }} -l {{ memcached_listen_ip }} -p {{ memcached_connection_port }} -c {{ memcached_max_connections }}"
+MEMCACHED_PARAMS="-U 0 -m {{ memcached_memory }} -l {{ memcached_listen_ip }} -p {{ memcached_connection_port }} -c {{ memcached_max_connections }}"
 
 ## Path:        Network/WWW/Memcached
 ## Description: username memcached should run as
