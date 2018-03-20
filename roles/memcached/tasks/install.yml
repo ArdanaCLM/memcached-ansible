@@ -19,4 +19,4 @@
 - name: memcached | install | Install memcached
   package:
     name: memcached
-    state: latest
+    state: present
