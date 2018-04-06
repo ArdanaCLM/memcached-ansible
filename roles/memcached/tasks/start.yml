@@ -27,3 +27,4 @@
   service:
     name: memcached
     state: started
+    enabled: yes
